@@ -8,6 +8,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
+# Instalar o Bootstrap e suas dependências
+RUN npm install bootstrap @popperjs/core
+
+# Copiar o restante dos arquivos do projeto
 COPY . .
 
 # Expor a porta que o Vue usa
