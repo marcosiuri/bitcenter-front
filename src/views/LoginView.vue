@@ -4,10 +4,8 @@
       <div class="container mt-5">
         <div class="row justify-content-center">
           <div class="col-md-4">
-            <h1 class="h1 title-color">BitCenter</h1>
-
             <div class="login-box p-4">
-              <h2 class="text-center">Login</h2>
+              <h2 class="text-center">BitCenter</h2>
               <br>
 
               <form @submit.prevent="handleLogin">
@@ -35,7 +33,7 @@
                 <br>
 
                 <div class="d-flex flex-column">
-                  <button type="button" class="btn btn-secondary mb-2">
+                  <button type="button" class="btn btn-secondary mb-2" @click="goToRegister">
                     Cadastrar
                   </button>
                   <button type="submit" class="btn btn-primary">
@@ -71,6 +69,9 @@ export default {
       this.username = '';
       this.password = '';
     },
+    goToRegister() {
+      this.$router.push('/cadastro'); 
+    },
   },
 };
 </script>
@@ -89,7 +90,7 @@ html, body {
 }
 
 .title-color{
-  color:#620093;
+  color:white;
 }
 
 .fullscreen-wrapper {
@@ -98,30 +99,28 @@ html, body {
   left: 0; 
   width: 100%; 
   height: 100%; 
-  background-color: #07031c; 
-
+  background: linear-gradient(145deg, #9216e4, #110741);
 }
 
 .login-container {
   display: flex; 
   justify-content: center; 
   align-items: center; 
-  justify-content: center; 
-  align-items: center;
+  height: 100%; 
 }
 
 .login-box {
-  background: linear-gradient(145deg, #5e009b, #7c1bc2); 
+  background: rgba(145, 22, 228, 0.5); 
   border-radius: 10px; 
   color: white; 
   padding: 30px; 
   width: 100%; 
-  max-width: 400px; 
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.2), 
-              -8px -8px 15px rgba(255, 255, 255, 0.1); 
-  justify-content: center; 
-  align-items: center;
+  max-width: 700px; 
+  position: relative;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
 }
+
 .login-box::before {
   content: '';
   position: absolute;
@@ -143,22 +142,39 @@ h2, label, p {
 }
 
 .btn-secondary ,.btn-primary{
-  background-color: #7c1bc2; 
+  background-color: #420892; 
   border-color: #7c1bc2;
 }
 
 .btn-primary:hover {
-  background-color: #420892; 
+  background-color: #010741; 
   border-color: #7c1bc2; 
 }
 
 .btn-secondary:hover {
-  background-color: #420892;
+  background-color: #010741;
   border-color: #7c1bc2;
 }
 
 a {
   color: white; 
 }
+
+input[type="password"],
+input[type="text"] {
+  width: 100%; 
+  max-width: 100%; 
+  padding: 10px; 
+  border: none; 
+  border-radius: 5px; 
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+input[type="password"]:focus,
+input[type="text"]:focus {
+  outline: none; 
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
 
 </style>
